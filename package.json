@@ -1,0 +1,13 @@
+{
+	"name": "ballcrack",
+	"version": "1.0.0",
+	"description": "Ballcrack",
+	"main": "src/index.js",
+	"scripts": {
+		"build": "esbuild src/index.js --minify --bundle --loader:.css=text --outfile=dist/ballcrack.js",
+		"watch": "esbuild src/index.js --minify --bundle --loader:.css=text --outfile=dist/ballcrack.js --watch"
+	},
+	"dependencies": {
+		"esbuild": "^0.25.11"
+	}
+}
