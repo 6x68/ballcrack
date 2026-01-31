@@ -29,13 +29,13 @@ Classic PvP, and OITQ use the new ac, everything else is using the old ac)`,
 		}
 	}
 	onTick() {
-		this.ticks++;
 		if (this.ticks < 6) {
 			hooks.game.player.motion.y = 0;
-			return;
+		} else {
+			if (!this.reduceVerticalMovement || this.ticks % 2 === 0) {
+				hooks.game.player.motion.y = 0.18;
+			}
 		}
-		if (!this.reduceVerticalMovement || this.ticks % 2 === 0) {
-			hooks.game.player.motion.y = 0.18;
-		}
+		this.ticks++;
 	}
 }
