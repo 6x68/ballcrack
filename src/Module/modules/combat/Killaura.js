@@ -15,7 +15,7 @@ export default class Killaura extends Module {
 
     ignoreEntities = ["EntityItem", "EntityXPOrb"]
 
-    onTick() {
+    afterTick() {
         const currentTime = Date.now();
         if (currentTime - this.lastExecutionTime >= this.options["Delay"]) {
             this.lastExecutionTime = currentTime;

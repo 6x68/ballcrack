@@ -13,8 +13,9 @@ export default {
         let hooksContext = this;
         this._fixedUpdate = this.game.fixedUpdate;
         this.game.fixedUpdate = function () {
+            events.emit("beforeTick");
             let returnVal = hooksContext._fixedUpdate.apply(this, arguments);
-            events.emit("tick");
+            events.emit("afterTick");
             return returnVal;
         }
     }

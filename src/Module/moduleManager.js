@@ -74,10 +74,18 @@ export default {
             }
         });
 
-        events.on("tick", () => {
+        events.on("beforeTick", () => {
             for (let name in this.modules) {
                 if (this.modules[name].isEnabled) {
-                    this.modules[name].onTick();
+                    this.modules[name].beforeTick();
+                }
+            }
+        });
+
+        events.on("afterTick", () => {
+            for (let name in this.modules) {
+                if (this.modules[name].isEnabled) {
+                    this.modules[name].afterTick();
                 }
             }
         });

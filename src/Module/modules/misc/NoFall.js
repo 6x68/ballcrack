@@ -6,11 +6,11 @@ export default class NoFall extends Module {
         super("NoFall", "Misc");
     }
 
-    onTick() {
-        if (hooks.game.player.fallDistance >= 2.5) {
-            hooks.game.player.fallDistance = 0;
+    afterTick() {
+        if (hooks.game.player.motion.y < -0.5 && !hooks.game.player.jumping) {
             hooks.game.player.onGround = true;
             hooks.game.player.sendPositionAndRotation();
+            hooks.game.player.onGround = false;
         }
     }
 }

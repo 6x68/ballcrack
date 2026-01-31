@@ -23,7 +23,7 @@ export default class Scaffold extends Module {
         }
     }
 
-    onTick() {
+    afterTick() {
         const holdingBlock = hooks.game.player.inventory.getCurrentItem()?.item?.block?.defaultState;
         if (!holdingBlock) return;
 

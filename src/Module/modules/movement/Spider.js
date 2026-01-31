@@ -8,7 +8,7 @@ export default class Spider extends Module {
         });
     }
 
-    onTick() {
+    afterTick() {
         if (hooks.game.player.isCollidedHorizontally) {
             hooks.game.player.motion.y = parseFloat(this.options["Climb Speed"]);
         }
