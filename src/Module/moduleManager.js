@@ -1,5 +1,6 @@
 import events from "../events";
 import Killaura from "./modules/combat/Killaura";
+import NoFall from "./modules/misc/NoFall";
 import SelfHarm from "./modules/misc/SelfHarm";
 import Airjump from "./modules/movement/Airjump";
 import HighJump from "./modules/movement/HighJump";
@@ -59,7 +60,8 @@ export default {
             Killaura,
 
             // misc
-            SelfHarm
+            SelfHarm,
+            NoFall
         );
 
         events.on("render", () => {
