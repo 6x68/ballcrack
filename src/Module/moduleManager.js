@@ -4,6 +4,7 @@ import NoFall from "./modules/misc/NoFall";
 import SelfHarm from "./modules/misc/SelfHarm";
 import Airjump from "./modules/movement/Airjump";
 import HighJump from "./modules/movement/HighJump";
+import Jesus from "./modules/movement/Jesus";
 import Phase from "./modules/movement/Phase";
 import Scaffold from "./modules/movement/Scaffold";
 import Speed from "./modules/movement/Speed";
@@ -57,6 +58,7 @@ export default {
             Speed,
             Scaffold,
             Spider,
+            Jesus,
 
             // combat
             Killaura,
