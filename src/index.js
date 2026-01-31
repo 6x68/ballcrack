@@ -4,9 +4,8 @@ import moduleManager from "./Module/moduleManager";
 
 import clickGUICSS from "./Module/modules/visual/styles/clickgui.css";
 import shadowWrapper from "./shadowWrapper";
-
-import interactionUtils from "./utils/interactionUtils";
 import blockUtils from "./utils/blockUtils";
+import interactionUtils from "./utils/interactionUtils";
 
 function loadCSS(css) {
 	const style = document.createElement("style");
@@ -52,5 +51,11 @@ setInterval(() => {
 const debug = true;
 
 if (debug) {
-    window.ballcrack = { hooks, shadowWrapper, moduleManager, interactionUtils, blockUtils };
+	window.ballcrack = {
+		hooks,
+		shadowWrapper,
+		moduleManager,
+		interactionUtils,
+		blockUtils,
+	};
 }

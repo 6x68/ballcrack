@@ -15,9 +15,9 @@ export default {
     hookOnTick () {
         const hooksContext = this;
         this._fixedUpdate = this.game.fixedUpdate;
-        this.game.fixedUpdate = function () {
+        this.game.fixedUpdate = function (...args) {
             events.emit("beforeTick");
-            let returnVal = hooksContext._fixedUpdate.apply(this, arguments);
+            const returnVal = hooksContext._fixedUpdate.apply(this, args);
             events.emit("afterTick");
             return returnVal;
         }

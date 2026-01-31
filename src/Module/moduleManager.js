@@ -76,6 +76,7 @@ class ModuleManager {
             Scaffold,
             Spider,
             Jesus,
+			Scaffold,
 
 			// combat
 			Killaura,

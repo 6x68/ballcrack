@@ -33,10 +33,9 @@ export default class Module {
 		this.modes[settingName] = modeOptions;
 	}
 
-    onEnable () {}
-    onDisable() {}
-    onRender() {}
-
+	onEnable() {}
+	onDisable() {}
+	onRender() {}
     beforeTick() {}
     afterTick() {}
 
