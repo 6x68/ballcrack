@@ -55,7 +55,7 @@ export default class Panel {
 				btn.classList.toggle("enabled", module.isEnabled);
 			}
 			if (event.button === 1) {
-				btn.textContent = "waiting for bind..";
+				btn.textContent = "waiting for bind...";
 				module.waitingForBind = true;
 			}
 		});

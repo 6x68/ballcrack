@@ -13,6 +13,8 @@ export default class Module {
 	bind;
 	isEnabled = false;
 	modes = {};
+	waitingForBind = false;
+
 	/**
 	 * @param {string} name
 	 * @param {string} category

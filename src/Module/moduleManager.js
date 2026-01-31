@@ -27,9 +27,8 @@ import Watermark from "./modules/visual/Watermark";
  */
 
 class ModuleManager {
-	/** @type {Record<String, Module>} */
+	/** @type {{[name: string]: Module}} */
 	modules = {};
-	waitingForBind = false;
 
 	/** @param {...Newable<Module>} modules */
 	addModules(...modules) {
@@ -44,17 +43,17 @@ class ModuleManager {
 		this.modules[module.name] = module;
 	}
 	/**
-	 * @param {any} key
+	 * @param {string} key
 	 */
 	handleKeyPress(key) {
-		for (const name in this.modules) {
-			const module = this.modules[name];
-
-			if (this.waitingForBind) {
-				module.bind = key;
-				this.waitingForBind = false;
-			} else if (key && module.bind === key) {
-				module.toggle();
+		for (const mod of Object.values(this.modules)) {
+			if (mod.waitingForBind) {
+				console.debug(`bound to ${key}`);
+				mod.bind = key;
+				mod.waitingForBind = false;
+			} else if (key && mod.bind === key) {
+				console.debug(`module.bind === ${key}`);
+				mod.toggle();
 			}
 		}
 	}
