@@ -1,4 +1,5 @@
 import shadowWrapper from "../../../../shadowWrapper.js";
+import Module from "../../../Module.js";
 import ModuleSettings from "./ModuleSettings.js";
 
 export default class Panel {
@@ -39,6 +40,7 @@ export default class Panel {
 		});
 	}
 
+	/** @param {Module} module */
 	addButton(module) {
 		const buttonContainer = document.createElement("div");
 		buttonContainer.className = "gui-button-container";
