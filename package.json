@@ -8,6 +8,6 @@
 		"watch": "esbuild src/index.js --minify --bundle --loader:.css=text --outfile=dist/ballcrack.js --watch"
 	},
 	"dependencies": {
-		"esbuild": "^0.25.11"
+		"rolldown": "^1.0.0-beta.57"
 	}
 }

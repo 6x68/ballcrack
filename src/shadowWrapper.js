@@ -1,25 +1,25 @@
 export default {
-    instance: null,
+	instance: null,
 
-    get wrapper () {
-        if (!this.instance) {
-            const iframe = document.createElement('iframe');
-            document.body.appendChild(iframe);
+	get wrapper() {
+		if (!this.instance) {
+			const iframe = document.createElement("iframe");
+			document.body.appendChild(iframe);
 
-            let attachShadow = iframe.contentWindow.Element.prototype.attachShadow;
-            iframe.remove();
-            
-            let container = document.createElement('div');
-            this.root = attachShadow.apply(container, [{ mode: 'closed' }]);
+			const attachShadow = iframe.contentWindow.Element.prototype.attachShadow;
+			iframe.remove();
 
-            let hostEl = document.createElement('div');
-            this.root.appendChild(hostEl);
+			const container = document.createElement("div");
+			this.root = attachShadow.apply(container, [{ mode: "closed" }]);
 
-            this.instance = hostEl;
+			const hostEl = document.createElement("div");
+			this.root.appendChild(hostEl);
 
-            document.body.appendChild(container);
-        }
+			this.instance = hostEl;
 
-        return this.instance;
-    }
-}
+			document.body.appendChild(container);
+		}
+
+		return this.instance;
+	},
+};

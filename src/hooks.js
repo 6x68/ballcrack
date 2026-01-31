@@ -1,16 +1,19 @@
 import events from "./events";
 
 export default {
-    get game () {
-        if (this._game) {
-            return this._game;
-        } else {
-            return this._game = Object.values(document.querySelector("#react"))[0].updateQueue.baseState.element.props.game;
-        }
-    },
+	get game() {
+		if (this._game) {
+			return this._game;
+		} else {
+			const game = Object.values(document.querySelector("#react"))[0]
+				.updateQueue.baseState.element.props.game;
+			this._game = game;
+			return this._game;
+		}
+	},
 
     hookOnTick () {
-        let hooksContext = this;
+        const hooksContext = this;
         this._fixedUpdate = this.game.fixedUpdate;
         this.game.fixedUpdate = function () {
             events.emit("beforeTick");
@@ -19,4 +22,4 @@ export default {
             return returnVal;
         }
     }
-}
+};

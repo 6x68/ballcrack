@@ -5,7 +5,7 @@ import Module from "../../Module";
 export default class Killaura extends Module {
     constructor() {
         super("Killaura", "Combat", {
-            "Delay": 100,
+            Delay: 100,
             "Auto Block": "true"
         });
 
@@ -17,7 +17,7 @@ export default class Killaura extends Module {
 
     afterTick() {
         const currentTime = Date.now();
-        if (currentTime - this.lastExecutionTime >= this.options["Delay"]) {
+        if (currentTime - this.lastExecutionTime >= this.options.Delay) {
             this.lastExecutionTime = currentTime;
             this.tryKill();
         }
@@ -35,13 +35,10 @@ export default class Killaura extends Module {
 
     tryKill () {
         let attacked = false;
-        let itemType = ballcrack.hooks.game.player.inventory.getCurrentItem()?.item?.constructor?.name;
-        let autoBlock = this.options["Auto Block"] == "true";
-
-        if (itemType !== "ItemSword") autoBlock = false;
+        const autoBlock = this.options["Auto Block"];
 
         hooks.game.world.loadedEntityList.forEach(ent => {
-            let dist = mathUtils.distanceBetween(ent.pos, hooks.game.player.pos);
+            const dist = mathUtils.distanceBetween(ent.pos, hooks.game.player.pos);
             if (hooks.game.player.id !== ent.id && dist < 14 && !this.ignoreEntities.includes(ent.constructor.name)) {
                 attacked = true;
 
