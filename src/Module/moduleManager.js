@@ -47,12 +47,7 @@ class ModuleManager {
 	 */
 	handleKeyPress(key) {
 		for (const mod of Object.values(this.modules)) {
-			if (mod.waitingForBind) {
-				console.debug(`bound to ${key}`);
-				mod.bind = key;
-				mod.waitingForBind = false;
-			} else if (key && mod.bind === key) {
-				console.debug(`module.bind === ${key}`);
+			if (key && mod.bind === key) {
 				mod.toggle();
 			}
 		}

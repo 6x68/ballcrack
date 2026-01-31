@@ -76,9 +76,9 @@ export default class Panel {
 				event.stopPropagation();
 				event.stopImmediatePropagation();
 				if (event.key === "Escape") {
-					module.keybind = null;
+					module.bind = null;
 				} else {
-					module.keybind = String(event.code);
+					module.bind = event.code;
 				}
 				module.waitingForBind = false;
 			}
