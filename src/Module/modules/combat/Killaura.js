@@ -35,7 +35,10 @@ export default class Killaura extends Module {
 
     tryKill () {
         let attacked = false;
+        let itemType = ballcrack.hooks.game.player.inventory.getCurrentItem()?.item?.constructor?.name;
         let autoBlock = this.options["Auto Block"];
+
+        if (itemType !== "ItemSword") autoBlock = false;
 
         hooks.game.world.loadedEntityList.forEach(ent => {
             let dist = mathUtils.distanceBetween(ent.pos, hooks.game.player.pos);
