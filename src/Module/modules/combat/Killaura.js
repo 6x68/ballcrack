@@ -6,7 +6,7 @@ export default class Killaura extends Module {
     constructor() {
         super("Killaura", "Combat", {
             "Delay": 100,
-            "Auto Block": true
+            "Auto Block": "true"
         });
 
         this.lastExecutionTime = null;
@@ -36,7 +36,7 @@ export default class Killaura extends Module {
     tryKill () {
         let attacked = false;
         let itemType = ballcrack.hooks.game.player.inventory.getCurrentItem()?.item?.constructor?.name;
-        let autoBlock = this.options["Auto Block"];
+        let autoBlock = this.options["Auto Block"] == "true";
 
         if (itemType !== "ItemSword") autoBlock = false;
 
