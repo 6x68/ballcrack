@@ -7,6 +7,7 @@ import HighJump from "./modules/movement/HighJump";
 import Phase from "./modules/movement/Phase";
 import Scaffold from "./modules/movement/Scaffold";
 import Speed from "./modules/movement/Speed";
+import Spider from "./modules/movement/Spider";
 import Step from "./modules/movement/Step";
 import ArrayList from "./modules/visual/Arraylist";
 import Chams from "./modules/visual/Chams";
@@ -55,6 +56,7 @@ export default {
             HighJump,
             Speed,
             Scaffold,
+            Spider,
 
             // combat
             Killaura,
