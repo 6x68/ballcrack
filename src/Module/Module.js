@@ -19,6 +19,7 @@ export default class Module {
     onEnable () {}
     onDisable() {}
     onRender() {}
+    onTick() {}
     onSettingUpdate() {}
     onChunkAdded() {}
     onChunkRemoved() {}

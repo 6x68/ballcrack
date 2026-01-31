@@ -12,7 +12,7 @@ export default class Killaura extends Module {
         this.lastExecutionTime = null;
     }
 
-    onRender() {
+    onTick() {
         const currentTime = Date.now();
         if (currentTime - this.lastExecutionTime >= this.options["Delay"]) {
             this.lastExecutionTime = currentTime;

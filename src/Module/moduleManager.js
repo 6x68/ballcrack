@@ -4,6 +4,7 @@ import SelfHarm from "./modules/misc/SelfHarm";
 import Airjump from "./modules/movement/Airjump";
 import HighJump from "./modules/movement/HighJump";
 import Phase from "./modules/movement/Phase";
+import Scaffold from "./modules/movement/Scaffold";
 import Speed from "./modules/movement/Speed";
 import Step from "./modules/movement/Step";
 import ArrayList from "./modules/visual/Arraylist";
@@ -52,6 +53,7 @@ export default {
             Step,
             HighJump,
             Speed,
+            Scaffold,
 
             // combat
             Killaura,
@@ -64,6 +66,14 @@ export default {
             for (let name in this.modules) {
                 if (this.modules[name].isEnabled) {
                     this.modules[name].onRender();
+                }
+            }
+        });
+
+        events.on("tick", () => {
+            for (let name in this.modules) {
+                if (this.modules[name].isEnabled) {
+                    this.modules[name].onTick();
                 }
             }
         });
